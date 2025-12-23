@@ -428,6 +428,9 @@ def send_friend_request_with_retry(author_uid, target_uid, token, server_name=No
 # -----------------------------
 # API Routes - WITH RETRY
 # -----------------------------
+@app.route('/ping')
+def ping():
+    return jsonify({"status": "alive"}), 200
 @app.route('/remove_friend', methods=['GET'])
 def remove_friend_api():
     """Remove friend using either token or UID/password - WITH RETRY"""
